@@ -1,6 +1,11 @@
 <h1>Express Project: {{title}}</h1>
-<ul>
-  {{#each users}}
-    <li>{{this}}</li>
-  {{/each}}
-</ul>
+
+<h2>{{pageTitle}}</h2>
+
+{{#if users}}
+  <ul>
+    {{#each users}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}

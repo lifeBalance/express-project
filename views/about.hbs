@@ -1,2 +1,13 @@
 <h1>{{title}}</h1>
+
+<h2>{{pageTitle}}</h2>
+
+{{#if users}}
+  <ul>
+    {{#each users}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+
 <p>What do you want to know cowboy?</p>

@@ -9,6 +9,9 @@ var app = express();
 app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
+// Locals
+app.locals.pageTitle = "Hi, I'm a locals, available in all views";
+
 // Routing
 app.get('/', function (req, res) {
   res.render('home', {
