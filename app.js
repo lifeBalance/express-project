@@ -11,26 +11,18 @@ app.set('view engine', '.hbs');
 
 // Routing
 app.get('/', function (req, res) {
-  // res.send('<h1>Hello Express</h1>')
   res.render('home', {
     title: 'Home',
-    users: ['Snoop Lion', '2Pac', 'The Yogi bear']
+    users: ['Snoop Lion', '2Pac', 'The Yogi bear'],
+    className: 'home'
   });
 });
 
-app.get('/me', function (req, res) {
-  res.send("<h1>Hey, it's me</h1>")
-});
-
-app.get('/who/:name?', function (req, res) {
-  var name = req.params.name;
-  res.send("<h1>Hey, it's " + name + "</h1>")
-});
-
-app.get('/who/:name?/:nick?', function (req, res) {
-  var name = req.params.name;
-  var nick = req.params.nick;
-  res.send("<h1>Hey, it's " + name + " the " + nick +"</h1>")
+app.get('/about', function (req, res) {
+  res.render('about', {
+    title: 'About Us',
+    className: 'about'
+  });
 });
 
 app.get('*', function (req, res) {

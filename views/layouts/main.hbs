@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Express Project</title>
+  {{>page/head}}
 </head>
-<body>
-  {{{body}}}
+<body class="{{className}}">
+  {{>page/header}}
+
+  <div class="container">
+    {{{body}}}
+  </div><!-- .container -->
+
+  {{>page/footer}}
+  {{>page/scripts}}
 </body>
 </html>
