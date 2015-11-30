@@ -1,5 +1,6 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
+var routes  = require('./routes');
 
 // Namespacing our application. We access all the methods
 // that express gives us through this `app` variable
@@ -10,24 +11,12 @@ app.engine('.hbs', exphbs({defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 // Locals
-app.locals.pageTitle = "Hi, I'm a locals, available in all views";
+app.locals.siteTitle = "Awesome Express";
+app.locals.copyright = new Date().getFullYear();
 
 // Routing
-app.get('/', function (req, res) {
-  res.render('home', {
-    title: 'Home',
-    users: ['Snoop Lion', '2Pac', 'The Yogi bear'],
-    className: 'home'
-  });
-});
-
-app.get('/about', function (req, res) {
-  res.render('about', {
-    title: 'About Us',
-    className: 'about'
-  });
-});
-
+app.get('/', routes.index);
+app.get('/about', routes.about);
 app.get('*', function (req, res) {
   res.send("<h1>Bad route!</h1>")
 });
